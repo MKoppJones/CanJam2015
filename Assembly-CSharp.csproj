@@ -49,6 +49,7 @@
      <Compile Include="Assets\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\Crew.cs" />
      <Compile Include="Assets\Scripts\Date.cs" />
+     <Compile Include="Assets\Scripts\Enemy.cs" />
      <Compile Include="Assets\Scripts\Log.cs" />
      <Compile Include="Assets\Scripts\Ship.cs" />
  <Reference Include="UnityEngine.UI">
