@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Ship : MonoBehaviour {
 
@@ -13,26 +14,34 @@ public class Ship : MonoBehaviour {
 
 	public GameObject player;
 
+	public List<GameObject> warps = new List<GameObject>();
+
 	// Use this for initialization
 	void Start () {
 		crewCount = crewCap;
 	}
 
+
 	void Movement()
 	{
-		if (Input.GetKey(KeyCode.W))
-			player.transform.Translate (new Vector3 (0,0,speed*0.005f));
+		if (Input.GetKey (KeyCode.D)) {
+			player.transform.Translate (new Vector3 (0, 0, speed * 0.005f));
+		}
 
-		if (Input.GetKey(KeyCode.S))
-			player.transform.Translate (new Vector3 (0,0,speed*-0.005f));
+		if (Input.GetKey (KeyCode.A)) {
+			player.transform.Translate (new Vector3 (0, 0, speed * -0.005f)); 
+		}
 
-		if(Input.GetKey (KeyCode.D))
-			player.transform.Translate (new Vector3 (speed*0.005f,0,0));
+		if (Input.GetKey (KeyCode.S)) {
+			player.transform.Translate (new Vector3 (speed * 0.005f, 0, 0));
+		}
 
-		if(Input.GetKey (KeyCode.A))
-			player.transform.Translate (new Vector3 (speed*-0.005f,0,0));
+		if (Input.GetKey (KeyCode.W)) {
+			player.transform.Translate (new Vector3 (speed * -0.005f, 0, 0));
+		}
 
-		gameObject.transform.position = new Vector3(player.transform.position.x,player.transform.position.y,-10);
+		Vector3 v = Vector3.zero;
+		gameObject.transform.position = Vector3.SmoothDamp (gameObject.transform.position, new Vector3 (player.transform.position.x, player.transform.position.y, -10), ref v, 0.15f);
 	}
 
 	// Update is called once per frame

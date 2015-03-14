@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PlayerCollision.cs" />
      <Compile Include="Assets\Scripts\Crew.cs" />
      <Compile Include="Assets\Scripts\Date.cs" />
      <Compile Include="Assets\Scripts\Log.cs" />
